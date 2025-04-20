@@ -43,7 +43,7 @@ jobs:
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v3
         with:
-          role-to-assume: arn:aws:iam::657454854557:role/GitHubActionsLambaSNSRepoRole
+          role-to-assume: arn:aws:iam::657454854557:role/GitHubActionsLambdaSNSRepoRole
           aws-region: ${{ env.AWS_REGION }}
 
       - name: Upload JAR to S3
@@ -52,8 +52,4 @@ jobs:
 
       - name: Deploy Lambda from S3
         run: |
-          aws lambda update-function-code \
-            --function-name $LAMBDA_FUNCTION_NAME \
-            --s3-bucket $S3_BUCKET_NAME \
-            --s3-key $S3_KEY \
-            --region $AWS_REGION
+          aws lambda update-function-code --function-name $LAMBDA_FUNCTION_NAME --s3-bucket $S3_BUCKET_NAME --s3-key $S3_KEY --region $AWS_REGION
