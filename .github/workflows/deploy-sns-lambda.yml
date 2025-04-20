@@ -17,7 +17,7 @@ jobs:
       AWS_REGION: eu-west-2
       S3_BUCKET_NAME: my-lambda-deployments-bucket-123456
       S3_KEY: lambda/sns-processor.zip
-      LAMBDA_FUNCTION_NAME: SnsSubscriberLambda
+      LAMBDA_FUNCTION_NAME: SendEmailFromDynamoDBLambda
 
     steps:
       - name: Checkout code
